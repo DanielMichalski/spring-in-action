@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-    public static final int DEFAULT_SPITTLES_PER_PAGE = 25;
+    public static final int DEFAULT_SPITTLES_PER_PAGE = 5;
 
     private ISpitterService spitterService;
 

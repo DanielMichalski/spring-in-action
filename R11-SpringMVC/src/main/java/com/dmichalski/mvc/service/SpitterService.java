@@ -1,5 +1,6 @@
 package com.dmichalski.mvc.service;
 
+import com.dmichalski.mvc.model.Spitter;
 import com.dmichalski.mvc.model.Spittle;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,17 @@ public class SpitterService implements ISpitterService {
         }
 
         return spittles;
+    }
+
+    @Override
+    public Spitter getSpitter(String username) {
+        Spitter spitter = new Spitter();
+        spitter.setName(username);
+        return spitter;
+    }
+
+    @Override
+    public List<Spittle> getSpittlesForSpitter(String username) {
+        return getRecentSpittles(3);
     }
 }
