@@ -11,7 +11,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>R9-ComponentScan</artifactId>
-
+    <artifactId>R09-ComponentScan</artifactId>
 
 </project>
