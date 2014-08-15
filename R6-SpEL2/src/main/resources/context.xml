@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <util:list id="cities">
+    <bean class="City" p:name="Chicago" p:state="IL" p:population="280321" />
+    <bean class="City" p:name="Atlanta" p:state="GA" p:population="125681" />
+    <bean class="City" p:name="Dallas" p:state="TX" p:population="127456" />
+  </util:list>
+
+  <context:property-placeholder location="classpath:test.properties" />
+
+  <bean id="guy" class="Guy">
+    <property name="choosenCity" value="#{cities[T(java.lang.Math).random() * cities.size()]}" />
+    <property name="name" value="${guy.firstName}" />
+  </bean>
+
+  <bean id="systemTest" class="SystemTest">
+    <property name="home" value="#{systemEnvironment['aplication.home']}" />
+  </bean>
+</beans>

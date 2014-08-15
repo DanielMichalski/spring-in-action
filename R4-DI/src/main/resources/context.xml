@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="hank" class="performers.OneManBand">
+    <property name="instruments">
+      <map>
+        <entry key="guitar" value-ref="guitar" />
+        <entry key="cymbal" value-ref="cymbal" />
+        <entry key="harmonica" value-ref="harmonica" />
+      </map>
+    </property>
+    <property name="count" value="blabla #{5.3}" />
+  </bean>
+
+  <!-- Instruments -->
+  <bean id="guitar" class="instruments.Guitar" />
+  <bean id="cymbal" class="instruments.Cymbal" />
+  <bean id="harmonica" class="instruments.Harmonica" />
+
+  <bean id="songSelector" class="songs.SongSelector">
+    <property name="songs">
+      <list>
+        <value>Song1</value>
+        <value>Song2</value>
+        <value>Song3</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="kenny" class="performers.Kenny">
+    <property name="song" value="#{songSelector.selectSong()}" />
+  </bean>
+
+  <bean id="carl" class="performers.Carl">
+    <property name="song" value="#{kenny.song.toUpperCase()}" />
+  </bean>
+
+</beans>

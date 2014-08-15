@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="sonnet39" class="poem.Sonnet29" />
+
+  <bean id="poeticDuke" class="performers.PoeticJuggler">
+    <constructor-arg value="15" />
+    <constructor-arg ref="sonnet39" />
+  </bean>
+
+  <bean id="stage" class="stage.Stage" />
+
+  <bean id="kenny" class="performers.Instrumentalist" />
+
+</beans>
