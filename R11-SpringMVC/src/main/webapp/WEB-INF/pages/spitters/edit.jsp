@@ -9,7 +9,6 @@
 <body>
     <div>
         <h2>Załóż darmowe konto Spittera</h2>
-
     </div>
 </body>
 </html>

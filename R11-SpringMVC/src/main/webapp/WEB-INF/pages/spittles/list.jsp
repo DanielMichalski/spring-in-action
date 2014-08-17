@@ -5,6 +5,7 @@
     <title></title>
 </head>
 <body>
+
     <h3>${spitter.name}</h3>
 
     <c:forEach var="spittle" items="${spittleList}">
